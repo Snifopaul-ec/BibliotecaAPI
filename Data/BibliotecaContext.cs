@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using BibliotecaAPI.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace BibliotecaAPI.Models;
+namespace BibliotecaAPI.Data;
 
 public partial class BibliotecaContext : DbContext
 {
@@ -17,7 +18,7 @@ public partial class BibliotecaContext : DbContext
 
     public virtual DbSet<Acceso> Accesos { get; set; }
 
-    public virtual DbSet<Auditorium> Auditoria { get; set; }
+    public virtual DbSet<Auditoria> Auditorias { get; set; }
 
     public virtual DbSet<Libro> Libros { get; set; }
 
@@ -39,7 +40,7 @@ public partial class BibliotecaContext : DbContext
             entity.HasKey(e => e.IdAcceso).HasName("PK__acceso__F2593D4AD03FF1EB");
         });
 
-        modelBuilder.Entity<Auditorium>(entity =>
+        modelBuilder.Entity<Auditoria>(entity =>
         {
             entity.HasKey(e => e.IdAuditoria).HasName("PK__auditori__9644A3CEE167B8DC");
         });

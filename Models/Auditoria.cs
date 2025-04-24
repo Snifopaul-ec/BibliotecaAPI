@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 namespace BibliotecaAPI.Models;
 
 [Table("auditoria")]
-public partial class Auditorium
+public partial class Auditoria
 {
     [Key]
     [Column("id_auditoria")]
