@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace BibliotecaAPI.Models;
+namespace BibliotecaAPI.Models.Entidades;
 
 [Table("usuarios")]
 [Index("Correo", Name = "UQ__usuarios__2A586E0BA440ACDF", IsUnique = true)]

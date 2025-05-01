@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace BibliotecaAPI.Models;
+namespace BibliotecaAPI.Models.Entidades;
 
 [Table("auditoria")]
 public partial class Auditoria

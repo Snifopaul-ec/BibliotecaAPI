@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace BibliotecaAPI.Models;
+namespace BibliotecaAPI.Models.Entidades;
 
 [Table("personas")]
 [Index("Cedula", Name = "UQ__personas__415B7BE562FFEF3E", IsUnique = true)]

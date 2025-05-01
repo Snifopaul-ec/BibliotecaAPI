@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace BibliotecaAPI.Models;
+namespace BibliotecaAPI.Models.Entidades;
 
 [Table("libros")]
 [Index("Isbn", Name = "UQ__libros__99F9D0A4F5C24661", IsUnique = true)]

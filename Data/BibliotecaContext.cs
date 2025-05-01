@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using BibliotecaAPI.Models;
+using BibliotecaAPI.Models.Entidades;
 using Microsoft.EntityFrameworkCore;
 
 namespace BibliotecaAPI.Data;
