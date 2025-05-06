@@ -27,6 +27,23 @@ namespace BibliotecaAPI.Controllers
             return Ok(allPersonas);
         }
 
+        [HttpGet]
+        // con guid 
+        //[Route("{id:guid}")]
+        //con Int
+        [Route("{id:int}")]
+        public IActionResult GetPersonaById(int id)
+        {
+            var persona = dbContext.Personas.Find(id);
+            
+            if (persona == null)
+            {
+                return NotFound();
+            }
+            return Ok(persona);
+        }
+
+
         [HttpPost]
         public IActionResult AddPersona(AddPersonaDto addPersonaDto)
         {
@@ -44,27 +61,43 @@ namespace BibliotecaAPI.Controllers
 
             return Ok(personaEntidad);
         }
-            /*
-            // GET api/<PersonaController>/5
-            [HttpGet("{id}")]
-            public string Get(int id)
+
+        [HttpPut]
+        [Route("{id:int}")]
+        public IActionResult UpdatePersona(int id, UpdatePersonaDto updatePersonaDto )
+        {
+            var persona = dbContext.Personas.Find(id);
+
+            if(persona is null)
             {
-                return "value";
+                return NotFound();
             }
-            // POST api/<PersonaController>
-            [HttpPost]
-            public void Post([FromBody] string value)
-            {
-            }
-            // PUT api/<PersonaController>/5
-            [HttpPut("{id}")]
-            public void Put(int id, [FromBody] string value)
-            {
-            }
-            // DELETE api/<PersonaController>/5
-            [HttpDelete("{id}")]
-            public void Delete(int id)
-            {
-            }*/
+
+            persona.Nombres = updatePersonaDto.Nombres;
+            persona.Apellidos = updatePersonaDto.Apellidos;
+            persona.Cedula = updatePersonaDto.Cedula;
+            persona.Telefono = updatePersonaDto.Telefono;
+
+            dbContext.SaveChanges();
+
+            return Ok(persona);
         }
+
+        [HttpDelete]
+        [Route("{id:int}")]
+        public IActionResult DeletePersona(int id)
+        {
+            var persona = dbContext.Personas.Find(id);
+            if (persona is null)
+            {
+                return NotFound();
+            }
+            // Verificar si la persona tiene usuarios asociados
+            dbContext.Personas.Remove(persona);
+            dbContext.SaveChanges();
+
+            return Ok(persona);
+        }
+
+    }
 }
